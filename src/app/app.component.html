@@ -1,0 +1,107 @@
+<div class="row">
+
+<div class="column">
+<form #userForm="ngForm"   (ngSubmit)="onSave(userForm.value)" novalidate>  
+  <p>Is "myForm" valid? {{userForm.valid}}</p>  
+ <table border='2'>  
+<tr>  
+<td>name</td>  
+<td>   
+    <input name="id" type="hidden"     [(ngModel)]="id" />  
+     <input name="name" type="text"  required  [(ngModel)]="name" />  
+  
+ </td>  
+</tr>  
+  
+<tr>  
+    <td>address</td>  
+    <td>    <input name="address" required  type="text"   [(ngModel)]="address" /></td>  
+    </tr> 
+    <tr>  
+      <td>Mobile NO</td>  
+      <td>    <input name="mobno" required  type="text"   [(ngModel)]="mobno" /></td>  
+      </tr>  
+    <tr>  
+        <td colspan="2">  
+    <input type="submit" value="{{valbutton}}" />  
+    </td>  
+    </tr>  
+ </table>  
+</form>   
+  
+<table border='1'>  
+  
+  <tr>  
+    <td>Id</td>  
+    <td>Name</td>  
+    <td>Address</td>  
+    <td>Edit</td>  
+    <td>Delete</td>  
+  </tr>  
+  <tr *ngFor="let kk of Repdata;let ind = index">  
+       
+    <td>{{ind + 1}}</td>  
+    <td>{{kk.name}}</td>  
+    <td>{{kk.address}}</td>  
+    <td>{{kk.mobno}}</td>
+    <td><a (click)="edit(kk)" style="color:blueviolet">Edit</a></td>  
+    <td><a (click)="delete(kk.name)" style="color:blueviolet">Delete</a>  </td>  
+  </tr>  
+</table>  
+</div>
+<div class="column">
+  This is testing
+  <form #searchForm="ngForm"   (ngSubmit)="onSearch(sname.value)" novalidate>  
+     <p>Is "myForm" valid? {{searchForm.valid}}</p>  
+   <table border='2'>  
+  <tr>  
+  <td>name</td>  
+  <td>   
+      <!-- <input name="id" type="hidden"     [(ngModel)]="id" />   -->
+      <input name="sname" type="text"  required  [(ngModel)]="sname" />  
+    
+   </td>  
+  </tr>  
+  <tr>  
+    <td colspan="2">  
+<input type="submit" value="{{sbutton}}" />  
+</td>  
+</tr>  
+   </table>
+  </form>
+   <br>
+<table border="1">
+<tr>  
+  <td>Id</td>  
+  <td>Name</td>  
+  <td>Address</td>  
+  <td>Edit</td>  
+  <td>Delete</td>  
+</tr>  
+<tr *ngFor="let kk1 of searchdata;let ind1 = index">  
+       
+  <td>{{ind1 + 1}}</td>  
+  <td>{{kk1.name}}</td>  
+  <td>{{kk1.address}}</td>  
+  <td>{{kk1.mobno}}</td>
+  <td><a (click)="edit(kk1)" style="color:blueviolet">Edit</a></td>  
+  <td><a (click)="delete(kk1.name)" style="color:blueviolet">Delete</a>  </td>  
+</tr>  
+
+  </table>
+  <p >Repdata : {{Repdata}}</p>
+  <p> Serach data :{{searchdata}} </p>
+  <!-- <table>
+    <tr *ngof="let kk1 of searchdata">
+      <tr>     
+       <td>{{ind1 + 1}}</td>   -->
+      <!-- <td>{{kk1.name}}</td>  
+      <td>{{kk1.address}}</td>  
+      <td>{{kk1.mobno}}</td>  -->
+      <!-- <td><a (click)="edit(kk1)" style="color:blueviolet">Edit</a></td>  
+      <td><a (click)="delete(kk1._id)" style="color:blueviolet">Delete</a>  </td>   -->
+     
+
+
+</div>
+</div>
